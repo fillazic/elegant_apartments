@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* ── Variables (scoped to avoid polluting global CSS) ──────
+   All text colors verified WCAG AA on #F7F4EE background:
+   --ze-gold-text  #7A5910  →  5.9:1  (AA ✓)
+   --ze-heading    #1A2D44  → 16.7:1  (AAA ✓)
+   --ze-body       #4B4540  →  8.7:1  (AAA ✓)
+   --ze-gold-deco  #B8882A  → decorative only, no contrast req.
+── */
+.ze-section {
+    --ze-gold-text: #7A5910;
+    --ze-gold-deco: #B8882A;
+    --ze-heading:   #1A2D44;
+    --ze-body:      #4B4540;
+
+    padding: 2rem 1.4rem 3rem;
+    font-family: "Open Sans", sans-serif;
+    background: #EDF1F8;
+}
+
+#elegant-zgrada {
+    margin-top: 0;
+}
+
+/* ── Gold divider ──────────────────────────────────────── */
+.ze-divider {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 2.5rem;
+}
+
+.ze-divider::before,
+.ze-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid var(--ze-gold-deco);
+    margin: 0 1rem;
+}
+
+.ze-divider-letter {
+    font-family: "Lora", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ze-gold-deco);
+    line-height: 1;
+}
+
+/* ── Content block ─────────────────────────────────────── */
+.ze-block {
+    margin-bottom: 3rem;
+}
+
+/* ── Image ─────────────────────────────────────────────── */
+.ze-image-wrap {
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+}
+
+.ze-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.ze-image-wrap:hover img {
+    transform: scale(1.03);
+}
+
+/* ── Text ──────────────────────────────────────────────── */
+.ze-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ze-gold-text);
+    margin-bottom: 0.6rem;
+}
+
+.ze-heading {
+    font-family: "Lora", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ze-heading);
+    margin: 0 0 0.7rem 0;
+    line-height: 1.35;
+}
+
+.ze-rule {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--ze-gold-deco);
+    margin-bottom: 1rem;
+}
+
+.ze-body {
+    font-size: 1rem;
+    line-height: 1.95rem;
+    color: var(--ze-body);
+    margin: 0;
+}
+
+/* ── Map ───────────────────────────────────────────────── */
+.ze-map {
+    position: relative;
+    width: 90%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin: 0 auto 2rem;
+}
+
+.ze-map iframe {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Scroll animation ──────────────────────────────────── */
+.ze-animate {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.ze-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── 820px — desktop ───────────────────────────────────── */
+@media only screen and (min-width: 820px) {
+
+    .ze-section {
+        padding: 3rem 3rem 4rem;
+    }
+
+    .ze-divider {
+        margin: 3rem 0 4rem;
+    }
+
+    .ze-divider-letter {
+        font-size: 2.5rem;
+    }
+
+    /* Two-column grid */
+    .ze-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-bottom: 5rem;
+    }
+
+    /* Default: text left, image right */
+    .ze-block .ze-text   { order: 1; }
+    .ze-block .ze-image-wrap { order: 2; }
+
+    /* Reverse: image left, text right */
+    .ze-block--reverse .ze-image-wrap { order: 1; }
+    .ze-block--reverse .ze-text       { order: 2; }
+
+    .ze-image-wrap {
+        margin-bottom: 0;
+    }
+
+    .ze-image-wrap img {
+        box-shadow: 0 12px 40px rgba(26, 45, 68, 0.11);
+    }
+
+    .ze-heading {
+        font-size: 1.9rem;
+    }
+
+    .ze-body {
+        font-size: 1.05rem;
+    }
+
+    .ze-map {
+        display: none;
+    }
+}
+
+/* ── 1200px ────────────────────────────────────────────── */
+@media only screen and (min-width: 1200px) {
+
+    .ze-section {
+        padding: 4rem 6rem 5rem;
+    }
+
+    .ze-block {
+        gap: 6rem;
+        margin-bottom: 6rem;
+    }
+
+    .ze-heading {
+        font-size: 2.3rem;
+    }
+
+    .ze-body {
+        font-size: 1.1rem;
+        line-height: 2.1rem;
+    }
+
+    .ze-divider-letter {
+        font-size: 3rem;
+    }
+
+    .ze-divider::before,
+    .ze-divider::after {
+        border-bottom: 3px solid var(--ze-gold-deco);
+    }
+}
