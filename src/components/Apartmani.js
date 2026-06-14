@@ -71,7 +71,7 @@ return (
             </div>
          ))}
          </div>
-         <div class="line-container">E</div>
+         <div className="line-container">E</div>
         <h3 className='elegant-apartmani-u-izgradnji'>Stanovi u izgradnji</h3>
         <div>
                 <div className='selected-container'>                    

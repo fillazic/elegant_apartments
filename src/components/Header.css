@@ -1,344 +1,356 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital@0;1&family=Montserrat&family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital@0;1&family=Montserrat&family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital@0;1&family=Montserrat&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:wght@400;600;700&display=swap');
 
-
+/* ── Header ──────────────────────────────────────────── */
 .header {
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    height: 4.5rem;
-    background-color: #002244;
-    z-index: 14;
-    width: 100%;
-    margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0 1.25rem;
+  background-color: #002244;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
 
+/* ── Logo ────────────────────────────────────────────── */
 .logo {
-    display: flex;
-    align-items: center;
-    margin-left: 0rem;
-    font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.logo img {
-   display: none;
+.logo-main {
+  font-family: "Lora", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #c5b358;
+  letter-spacing: 0.18em;
 }
 
-.logo h2 {
-    padding: 0.7rem;
-    background-color: none;
-    color: rgb(197, 179, 89);
+.logo-sub {
+  font-family: "Lora", serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.1em;
+}
+
+/* ── Desktop nav (hidden on mobile) ─────────────────── */
+.desktop-nav {
+  display: none;
+}
+
+/* ── Right-side icons ────────────────────────────────── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.header-icon {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.header-icon:hover {
+  color: #c5b358;
+}
+
+.header-icon--phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: #c5b358;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  color: #fff;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.header-icon--phone:hover {
+  background-color: #b8a245;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* ── Hamburger button ────────────────────────────────── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* bars → X */
+.hamburger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger--open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile nav drawer ───────────────────────────────── */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  width: min(300px, 82vw);
+  background-color: #0b1a30;
+  display: flex;
+  flex-direction: column;
+  padding: 5.5rem 1.75rem 2.5rem;
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav--open {
+  transform: translateX(0);
+}
+
+.mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav__link {
+  display: block;
+  padding: 1rem 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: color 0.2s, padding-left 0.25s;
+}
+
+.mobile-nav__link:hover {
+  color: #c5b358;
+  padding-left: 0.5rem;
+}
+
+.mobile-nav__link--cta {
+  color: #c5b358;
+  font-weight: 700;
+}
+
+.mobile-nav__contact {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.mobile-nav__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-family: "Open Sans", sans-serif;
+  transition: color 0.2s;
+}
+
+.mobile-nav__contact-item:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mobile-nav__contact-item .fa {
+  width: 1rem;
+  text-align: center;
+  color: #c5b358;
+  flex-shrink: 0;
+}
+
+/* ── Backdrop overlay ────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.overlay--visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── 480px — landscape phones ────────────────────────── */
+@media (min-width: 480px) {
+  .header {
+    padding: 0 1.5rem;
+  }
+
+  .header-actions {
+    gap: 1.25rem;
+  }
+}
+
+/* ── 600px — large phones / small tablets ────────────── */
+@media (min-width: 600px) {
+  .header {
+    height: 4.5rem;
+    padding: 0 1.75rem;
+  }
+
+  .logo-main {
     font-size: 1.7rem;
-    font-family: "Lora", serif;
-    font-weight: 400;
-    text-align: left;
-    line-height: 70%;
+  }
+
+  .logo-sub {
+    font-size: 0.8rem;
+  }
+
+  .header-actions {
+    gap: 1.4rem;
+  }
 }
 
-.logo a {
-    text-decoration: none;
-}
+/* ── 768px — tablets + desktop nav switch ────────────── */
+@media (min-width: 768px) {
+  .header {
+    height: 5rem;
+    padding: 0 2.5rem;
+  }
 
-.draskovic {
-    font-weight: bold;
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: "Lora", serif;
-}
+  .logo-main {
+    font-size: 2rem;
+  }
 
-.desctop-btn {
+  .logo-sub {
+    font-size: 0.9rem;
+  }
+
+  /* Hide mobile-only elements */
+  .hamburger,
+  .header-icon {
     display: none;
-}
+  }
 
-.desctop-menu {
-    display: none;
-}
-
-.menu {
+  /* Show desktop nav */
+  .desktop-nav {
     display: flex;
     align-items: center;
-    padding-right: 1rem;
-    cursor: pointer;
-}
+    gap: 0.5rem;
+  }
 
-.menu img {
-    display: flex;
-    align-items: baseline;
-    cursor: pointer;
-    border: none;
-    background-color: none;
-    margin-left: 2rem;
-    height: 1.1rem;
-    width: auto;
-}
-
-.menu-btn {
-    font-size: 1rem;
-}
-
-
-.menu-visible {
-    display: block;
-    position: fixed;
-    right: 0;
-    z-index: 3;
-    height: 100vh;
-    width: 70%;
-    background-color: #1b1c1f;
-    transform: translateX(100%);
-    transition: transform .3s ease-in-out;
-}
-
-.underlayer {
-    display: block;
-    position: fixed;
-    right: 0;
-    z-index: 2;
-    height: 100vh;
-    width: 100%;
-    background-color: #001f3f;
-    transform: translateX(100%);
-    transition: transform .2s ease-in-out;
-    opacity: 0.3;
-}
-
-#menuVisible {
-    transform: translateX(0);
-}
-
-#underlayerVidible {
-    transform: translateX(0);
-}
-
-.profile-btn {
-    height: 8rem;
-    width: 100%;
-    padding-bottom: 1rem;
-    text-align: center;
-    display: block;
-    margin-top: 2rem;
-}
-
-.under-profile {
-    opacity: 0.8;
-    position: relative;
-    margin-top: 5rem;
-}
-
-.ulica-side-menu {
-    display: flex;
-    align-items: center;
-    color: white;
-    padding-left: 1rem;
-}
-
-.ulica-side-menu img {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-right: 1rem;
-}
-
-.ulica-side-menu a {
-    text-decoration: none;
-    color: white;
-}
-
-.vb-side-menu {
-    color: white;
-    padding: 0rem;
-    margin: 0;
-    text-align: left;
-    padding-left: 3.5rem;
-    line-height: 0.8rem;
-}
-   
-.profile-btn img {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    height: 0.8rem;
-    width: auto;
-}
-
-.logIn {
-    text-align: left;
-    height: 3rem;
-    width: 90%;
-    background-color: #1b1c1f;
-    color: hsl(0, 0%, 100%, 0.8);
-    font-weight: bold;
-    font-size: 1.2rem;
+  .nav-link {
+    padding: 0.45rem 1rem;
     font-family: "Open Sans", sans-serif;
-    margin-top: 1rem ;
-    border: none;
-    border-bottom: 1px solid #353030;
-    cursor: pointer;
-}
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: color 0.2s, background-color 0.2s;
+  }
 
+  .nav-link:hover {
+    color: #c5b358;
+    background-color: rgba(197, 179, 88, 0.08);
+  }
 
-.stan {
-    color: rgb(197, 179, 89);
-}
-
-.close-path-h {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4.2rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    background-color: #747779;
-    border-bottom: 1px solid black;
-    cursor: pointer;
-}
-.close-path-h img {
-    margin-left: 0.5rem;
-    height: 2rem;
-    width: auto;
-}
-
-.search-btn-img {
+  .nav-link--cta {
     background-color: #c5b358;
-    margin: 0;
-    height: 2.2rem;
-    padding: 0.5rem;
-    border-radius: 1rem;
+    color: #002244;
+    font-weight: 700;
+    padding: 0.45rem 1.25rem;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  .nav-link--cta:hover {
+    background-color: #b8a245;
+    color: #002244;
+  }
+
+  /* Lock drawer off-screen on desktop */
+  .mobile-nav--open {
+    transform: translateX(100%);
+  }
+
+  .overlay--visible {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
-@media only screen and (min-width: 500px){ 
-    .menu {
-        display: flex;
-        align-items: center;
-        padding-right: 1rem;
-        cursor: pointer;
-    }
-    
-    .menu img {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        cursor: pointer;
-        border: none;
-        background-color: none;
-        margin-left: 3rem;
-        height: 1.1rem;
-        width: auto;
-    }
+/* ── 1200px — laptops / large screens ───────────────── */
+@media (min-width: 1200px) {
+  .header {
+    height: 5.5rem;
+    padding: 0 3.5rem;
+  }
+
+  .logo-main {
+    font-size: 2.4rem;
+  }
+
+  .logo-sub {
+    font-size: 1rem;
+  }
+
+  .desktop-nav {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .nav-link:hover {
+    color: #c5b358;
+  }
 }
 
-@media only screen and (min-width: 600px){ 
-
-    .header {
-        height: 5rem;
-    }
-
-    .logo h2 {
-        font-size: 2rem;
-    }
-
-    .draskovic {
-        font-size: 1.2rem;
-    }
-
-    .menu img {
-        margin-left: 4rem;
-        height: 1.4rem;
-    }
-
+/* ── 1440px — wide monitors, cap content width ───────── */
+@media (min-width: 1440px) {
+  .header {
+    /* Keeps background full-width but clamps the content inset */
+    padding: 0 max(3.5rem, calc((100% - 1400px) / 2));
+  }
 }
 
-@media only screen and (min-width: 740px){ 
-
-    .header {
-        height: 6rem;
-    }
-
-    .logo h2 {
-        font-size: 2.5rem;
-    }
-
-    .draskovic {
-        font-size: 1.3rem;
-    }
-
-}
-
-@media only screen and (min-width: 820px){
-
-    .header {
-        align-items: center;
-    }
-
-    .menu {
-        display: none;
-    }
-    
-    .logo img {
-        height: auto;
-        width: 16rem;
-        margin-right: 0;
-    }
-    
-    .search-btn, .search-button-img {
-        display: flex;
-    }
-    
-    #menuVisible {
-        transform: translateX(100%);
-    }
-    
-    #underlayerVidible {
-        transform: translateX(100%);
-    }
-
-    .desctop-menu {
-        display: contents;
-        margin-right: 1rem;
-    }
-
-    .nav-menu, .nav-menu-stan {
-        margin: auto 1rem;
-        font-size: 1.2rem;
-        font-family: "Open Sans", sans-serif;
-        color: white;
-        background-color: #002244;
-        border: none;
-        cursor: pointer;
-    }
-
-    .nav-menu-stan {
-        background-color: #c5b358;
-        color: white;
-        padding: 0.5rem;
-        font-weight: bold;
-        border-radius: 0.5rem;
-        animation: puls 2s linear infinite;
-    }
-    
-}
-
-@media only screen and (min-width: 1200px){ 
-
-    .header { 
-        height: 6rem;
-    }
-
-    .logo h2 {
-        font-size: 3rem;
-    }
-
-    .draskovic {
-        font-size: 1.7rem;
-    }
-
-    .nav-menu, .nav-menu-stan {
-        margin: auto 2rem;
-        font-size: 1.5rem;
-    }
-
-
-    .nav-menu:hover {
-        color: #c5b358;
-    }
+/* ── Pulse animation for Stanovi CTA ─────────────────── */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 179, 88, 0.45); }
+  50%       { box-shadow: 0 0 0 8px rgba(197, 179, 88, 0); }
 }

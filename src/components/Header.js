@@ -1,89 +1,77 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-function Header( ) {
+function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-   const [isVisible, setIsVisible] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(prev => !prev);
+  const closeMenu = () => setIsMenuOpen(false);
 
-   const menuVis = () => {
-    const sidemenu = document.querySelector('.menu-visible');
-    const layer = document.querySelector('.underlayer');
-    sidemenu.id = 'menuVisible';
-    layer.id ='underlayerVidible';
-  }
+  return (
+    <>
+      <header className="header">
+        <a href="/" className="logo">
+          <span className="logo-main">ELEGANT</span>
+          <span className="logo-sub">Drašković</span>
+        </a>
 
-  const menuNotVis = () => {
-    const sidemenu = document.querySelector('.menu-visible');
-    const layer = document.querySelector('.underlayer');
-    sidemenu.id = '';
-    layer.id ='';
-  }
+        <nav className="desktop-nav" aria-label="Glavna navigacija">
+          <Link to="#" className="nav-link">O nama</Link>
+          <Link to="#" className="nav-link">Lokacija</Link>
+          <Link to="/stanovi" className="nav-link nav-link--cta">Stanovi</Link>
+        </nav>
 
-   const changeVisibility = () => {
-      setIsVisible(!isVisible)
-   }
-
-
-    return (
-      <div className='header' >
-        <div className='logo' >
-          <img  src="./images/logo3.png" alt="logo"/>
-          <a href='/'>
-            <h2>
-              ELEGANT<br/>
-              <span className='draskovic'>Drašković</span>
-            </h2>
+        <div className="header-actions">
+          <a href="mailto:elegant.mts@gmail.com" className="header-icon" aria-label="Pošalji email">
+            <i className="fa fa-envelope"></i>
           </a>
+          <a href="tel:+38169663518" className="header-icon header-icon--phone" aria-label="Pozovi">
+            <i className="fa fa-phone"></i>
+          </a>
+          <button
+            className={`hamburger${isMenuOpen ? ' hamburger--open' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Otvori meni"
+            aria-expanded={isMenuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-          
+      </header>
 
-        <div className='menu'>
-          <a href="mailto:elegant.mts@gmail.com"><img  className='sedan-btn' src="images/mail-icon.svg" alt="car" onClick={changeVisibility} /></a>
-          <a href='tel:+38169663518' ><img  className='search-btn-img' src="images/phone.svg" alt="search" /></a>
-          <a><img  className='menu-btn' src="images/hamburger.svg" alt="menu" onClick={menuVis} /></a>
-        </div>
+      <div className={`mobile-nav${isMenuOpen ? ' mobile-nav--open' : ''}`} aria-hidden={!isMenuOpen}>
+        <nav className="mobile-nav__links">
+          <Link to="#" className="mobile-nav__link" onClick={closeMenu}>O nama</Link>
+          <Link to="#" className="mobile-nav__link" onClick={closeMenu}>Lokacija</Link>
+          <Link to="/stanovi" className="mobile-nav__link mobile-nav__link--cta" onClick={closeMenu}>Stanovi</Link>
+        </nav>
 
-        <div className='desctop-menu' >
-              <div>
-                <Link to='#' ><button className='nav-menu'> O nama </button></Link>
-                <Link to='#' ><button  className='nav-menu'> Lokacija </button></Link>
-                <Link to='/stanovi' ><button className='nav-menu-stan'> Stanovi </button></Link>
-              </div>
+        <div className="mobile-nav__contact">
+          <a href="mailto:elegant.mts@gmail.com" className="mobile-nav__contact-item">
+            <i className="fa fa-envelope"></i>
+            <span>elegant.mts@gmail.com</span>
+          </a>
+          <a href="tel:+38169663518" className="mobile-nav__contact-item">
+            <i className="fa fa-phone"></i>
+            <span>+381 69 663 518</span>
+          </a>
+          <div className="mobile-nav__contact-item">
+            <i className="fa fa-map-marker"></i>
+            <span>Heroja Maričića 57a, Vrnjačka Banja</span>
+          </div>
         </div>
-        
-        <div className='menu-visible' >
-              <div className='profile-btn'>
-                <img src="images/close.svg" alt="close" onClick={menuNotVis} />
-                  <Link to='#' ><button className='logIn' onClick={menuNotVis}> O nama </button></Link>
-                  <Link to='#' ><button className='logIn' onClick={menuNotVis}> Lokacija </button></Link>
-                  <Link to='/stanovi' ><button className='logIn stan' onClick={menuNotVis}> Stanovi </button></Link>
-              </div>
-              <div className='under-profile'>
-                    <div className='kontakt'>
-                        <div className='ulica-side-menu'>
-                          <img src='images/mail-icon.svg'/>
-                          <a href="mailto:elegant.mts@gmail.com"><p>elegant.mts@gmail.com</p></a>
-                        </div>
-                        <div className='ulica-side-menu'>
-                          <img src='images/phone.svg'/>
-                          <a href='tel:+38169663518' ><p>+381 69 663 518</p></a>
-                        </div>
-                    </div>
-                    <div className='ulica-side-menu'>
-                        <img src='images/lokacija.svg'/>
-                        <p>Heroja Maričića 57a</p>
-                    </div>
-                    <p className='vb-side-menu'>Vrnjačka Banja</p>
-              </div>
-        </div>
+      </div>
 
-        <div className='underlayer' onClick={menuNotVis}>
-        </div>
+      <div
+        className={`overlay${isMenuOpen ? ' overlay--visible' : ''}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+    </>
+  );
+}
 
-        </div>
-    );
-  }
-  
-  export default Header;
+export default Header;
