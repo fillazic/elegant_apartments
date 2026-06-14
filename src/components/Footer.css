@@ -1,138 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital@0;1&family=Montserrat&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-
-.elegant-draskovic-kontakt {
-    background-color: #002244;
-    color: white;
-    height: auto;
-    width: 100%;
-    margin: auto;
-    text-align: left;
+/* ── Footer wrapper ─────────────────────────────────────── */
+.ftr-footer {
+    background-color: #0D1B2A;
+    color: #fff;
     font-family: "Open Sans", sans-serif;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 
-.kontakt-draskovic {
-    display: block;
+/* ── Main row ───────────────────────────────────────────── */
+.ftr-inner {
+    padding: 2.5rem 1.5rem 2rem;
+    border-bottom: 1px solid rgba(197, 179, 88, 0.25);
+}
+
+/* ── Section headings ───────────────────────────────────── */
+.ftr-heading {
+    font-family: "Lora", serif;
+    font-size: 0.95rem;
+    font-weight: 700;
     color: #c5b358;
-    margin: 0 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #c5b358;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
 }
 
-.kontakt-draskovic h3 {
-    margin: 0;
-    margin-bottom: 1rem;
+/* ── Contact block ──────────────────────────────────────── */
+.ftr-contact {
+    margin-bottom: 2.2rem;
 }
 
-.kontakt-draskovic a {
-    text-decoration: none;
-    color: #c5b358;
-    display: block;
-    line-height: 2rem;
+.ftr-name {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 0.4rem 0;
+    font-size: 0.95rem;
     font-weight: 600;
 }
 
-.instagram-elegant {
-    margin: auto 1rem;
+.ftr-link {
     display: block;
-    color: #c5b358;
-    border-bottom: 1px solid #c5b358;
-    padding-bottom: 1rem;
-}
-
-.kontakt-draskovic p {
-    margin: 0;
+    width: fit-content;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
     line-height: 2rem;
+    transition: color 0.2s;
+    margin: auto;
 }
 
-
-.instagram-elegant img {
-    height: 1.4rem;
-    width: auto;
-    padding-left: 0;
-    padding-right: 1.8rem;
-}
-
-.instagram-elegant-d {
-   margin-left: 0;
-}
-
-.elegant-copy-rights {
-    text-align: center;
-    padding: auto 1rem;
-    font-size: 0.8rem;
+.ftr-link:hover {
     color: #c5b358;
 }
 
-.elegant-copy-rights p {
-    padding-top: 3rem;
-    padding-bottom: 0;
-    margin-bottom: 0;
+/* ── Social block ───────────────────────────────────────── */
+.ftr-social {
+    margin-bottom: 0.5rem;
 }
 
-@media only screen and (min-width: 500px){ 
-    .elegant-draskovic-kontakt {
-        text-align: center;
-    }
-    .instagram-elegant img {
-        height: 1.4rem;
-        width: auto;
-        padding: 1rem 1.2rem;
-    }
+.ftr-icons {
+    display: flex;
+    justify-content:center;
+    gap: 0.75rem;
 }
 
-@media only screen and (min-width: 820px){ 
-    .footer {
+.ftr-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    border: 1px solid rgba(197, 179, 88, 0.35);
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.ftr-icon-btn svg {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+.ftr-icon-btn:hover {
+    border-color: #c5b358;
+    color: #c5b358;
+    background: rgba(197, 179, 88, 0.1);
+}
+
+/* ── Copyright bar ──────────────────────────────────────── */
+.ftr-copyright {
+    text-align: center;
+    padding: 1.1rem 1rem;
+}
+
+.ftr-copyright p {
+    color: rgba(197, 179, 88, 0.45);
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+/* ── 820px ──────────────────────────────────────────────── */
+@media (min-width: 820px) {
+    .ftr-inner {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-        margin: auto 1.4rem;
+        align-items: flex-start;
+        padding: 3rem 4rem 2.5rem;
     }
 
-    .kontakt-draskovic {
-        text-align: left;
-        border-bottom: none;
-        font-size: 1.2rem;
+    .ftr-contact {
+        margin-bottom: 0;
     }
 
-    .instagram-elegant {
-        text-align: left;
-        margin-top: 0;
-        border-bottom: none;
-        font-size: 1.2rem;
-    }
-
-    .instagram-elegant h3 {
-        margin-top: 0;
-        margin-left: 1rem;
-    }
-
-    .instagram-elegant img {
-        margin-left: 0;
-    }
-
-    .elegant-copy-rights {
-        border-top: 1px solid #c5b358;
+    .ftr-heading {
         font-size: 1rem;
     }
 
-    .instagram-elegant img {
-        height: 1.6rem;
-        width: auto;
+    .ftr-name {
+        font-size: 1rem;
     }
 
+    .ftr-link {
+        font-size: 0.95rem;
+    }
+
+    .ftr-icon-btn {
+        width: 2.9rem;
+        height: 2.9rem;
+    }
+
+    .ftr-icon-btn svg {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .ftr-copyright p {
+        font-size: 0.85rem;
+    }
 }
 
-@media only screen and (min-width: 1200px){ 
-    .kontakt-draskovic, .instagram-elegant {
-        font-size: 1.4rem;
-        margin: auto 3rem;
+/* ── 1200px ─────────────────────────────────────────────── */
+@media (min-width: 1200px) {
+    .ftr-inner {
+        padding: 3.5rem 6rem 2.5rem;
     }
 
-    .instagram-elegant img {
-        height: 1.8rem;
-        width: auto;
+    .ftr-heading {
+        font-size: 1.1rem;
+    }
+
+    .ftr-name,
+    .ftr-link {
+        font-size: 1.05rem;
     }
 }

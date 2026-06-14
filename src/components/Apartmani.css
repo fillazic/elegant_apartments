@@ -1,376 +1,416 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital@0;1&family=Montserrat&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-.elegant-apartmani {
+/* ── Page ───────────────────────────────────────────────── */
+.ap-page {
+    --ap-gold:     #B8882A;
+    --ap-gold-lt:  #c5b358;
+    --ap-bg:       #1A2D44;
+    --ap-card-bg:  #F7F4EE;
+    --ap-text:     #F7F4EE;
+    --ap-text-muted: rgba(247, 244, 238, 0.6);
+
     padding-top: 4.5rem;
+    background: var(--ap-bg);
     font-family: "Open Sans", sans-serif;
-    animation: moveUp 2s ease-in-out forwards;
+    min-height: 100vh;
 }
 
-.elegant-apartmani h3 {
-    text-align: center;
-}
-
-.apartmani-vrnjacka-banja {
-    position: flex;
-    overflow: hidden;
-    animation:  introLoad 4s forwards;
-}
-
-
-.slike-apartmani {
-    width: 28rem;
-    height: 35rem;
-}
-
-.image-slider-apartmani {
-  width: 30rem;
-  height: 35rem;
-}
-
-.prodaja-apartmana {
-    position: absolute;
-    font-weight: bold;
-    top: 28rem;
-    width: 100%;
-    text-align: center;
-    margin: auto;
-}
-
-.prodaja-apartmana p {
-    text-align: center;
-    font-size: 1.4rem;
-    line-height: 3rem;
-    padding: 1.2rem 1rem;
-    background-color: hsl(210, 100%, 13%, 0.8);
-    color: #ffff;
-    opacity: 0;
-    animation: moveDown 2s ease-in-out forwards;
-}
-
-.prodaja-apartmana img {
-    position: absolute;
-    height: 3rem;
-    width: 1rem;
-    top: 3rem;
-    left: 1.2rem;
-    animation: moveArrow 1s alternate-reverse infinite;
-}
-
-div.selected-container {
-    width: 20rem;
-    height: 2.6rem;
+/* ── Hero ───────────────────────────────────────────────── */
+.ap-hero {
     position: relative;
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-    margin: 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #002142;
-    border-radius: 0.5rem;
+    height: 20rem;
+    overflow: hidden;
 }
 
-
-
-div.selected-container:hover {
-    border: 1.4px solid hsl(210, 100%, 13%, 0.8);
-    .icon i {
-        color: hsl(210, 100%, 13%, 0.8);
-    }
-
-}
-
-.icon {
-    font-size: 1.4rem;
+.ap-hero-bg {
     position: absolute;
-    right: 1rem;
+    inset: 0;
+    background-size: cover;
+    background-position: center 40%;
+    animation: apZoom 8s ease-out forwards;
 }
 
-#selected-items {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    appearance: none;
-    font-size: 1rem;
-    font-family: "Open Sans", sans-serif;
-    color: #002142;
-    border: none;
-    border-radius: 0.5rem;
-    padding-left: 1rem;
+.ap-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(13, 27, 42, 0.92) 25%,
+        rgba(13, 27, 42, 0.5) 65%,
+        transparent 100%
+    );
 }
 
-
-.namesteni-apartmani {
-    border: 4px solid hsla(0, 0%, 0%, 0.8);
-    background-color: hsla(214, 24%, 87%, 0.8);
-    padding: 10px;
-    margin: 3.5rem 2rem;
-    font-family: "Open Sans", sans-serif;
-}
-
-
-.namesteni-apartmani h3 {
-    color: black;
-    opacity: 0.8;
-    margin: 0;
-    font-size: 1rem;
-    text-align: center;
-}
-
-.kraljevski-apartman div { 
-    max-width: 30rem;
-    max-height: 20rem;
-}
-
-.kraljevski-apartman img {
-    width: 100%;
-    max-height: 15rem;
-}
-
-.opis {
-    text-align: center;
-}
-
-.opis div {
-   text-align: center;
-   color: black;
-    opacity: 0.8;
-   font-size: 0.8rem;
-}
-
-.opis p {
-    text-align: center;
-}
-
-.pregled {
-    background-color: #c5b358;
-    color: white;
-    width: 5rem;
-    padding:  0.5rem 1rem;
-    font-weight: 500;
-    margin: auto;
-}
-
-.vrnjacka-banja-apartmani {
-    color: black;
-    opacity: 0.8;
-    text-align: center;
-    margin: 4rem 1rem 0 1rem;
-}
-
-.elegant-apartmani-u-izgradnji {
-    color: black;
-    opacity: 0.8;
-    text-align: center;
-    margin: 1rem 1rem 0 1rem;
-}
-.apartmani-u-izgradnji {
-    border: 3px solid hsla(0, 0%, 0%, 0.8);
-    background-color: hsla(214, 24%, 87%, 0.8);
-    padding: 10px;
-    margin: 3.5rem 2rem;
-}
-
-.sema div { 
-    max-width: 35rem;
-    max-height: 35rem;
-}
-
-.sema img {
-    width: 100%;
-    height: 100%;
-}
-
-.apartmani-u-izgradnji div p {
-    color: black;
-    opacity: 0.8;
-    font-weight: 500;
-    font-size: 0.8rem;
-}
-
-.pregled-izgradnje {
-    background-color: #c5b358;
-    color: white;
-    width: 5rem;
-    padding:  0.5rem 1rem;
-    font-weight: 500;
-    margin: auto;
-}
-
-.non-full {
-    display: none;
-}
-
-.full-img {
-    position: fixed;
-    top: 0;
+.ap-hero-content {
+    position: absolute;
+    bottom: 2.5rem;
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    color: var(--ap-text);
+    animation: apFadeUp 1s 0.3s both;
+}
+
+.ap-hero-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ap-gold-lt);
+    margin-bottom: 0.5rem;
+}
+
+.ap-hero-heading {
+    font-family: "Lora", serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    margin: 0;
+}
+
+/* ── Section ────────────────────────────────────────────── */
+.ap-section {
+    padding: 3rem 1.4rem;
+}
+
+.ap-section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.ap-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ap-gold-lt);
+    margin-bottom: 0.5rem;
+}
+
+.ap-heading {
+    font-family: "Lora", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--ap-text);
+    margin: 0.2rem 0 0.7rem;
+}
+
+.ap-rule {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--ap-gold);
+    margin: 0 auto;
+}
+
+/* ── Divider ────────────────────────────────────────────── */
+.ap-divider {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin: 0 1.4rem 0.5rem;
+}
+
+.ap-divider::before,
+.ap-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(197, 179, 88, 0.35);
+    margin: 0 1rem;
+}
+
+.ap-divider-letter {
+    font-family: "Lora", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ap-gold-lt);
+    line-height: 1;
+}
+
+/* ── Filters ────────────────────────────────────────────── */
+.ap-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.ap-filter-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 22rem;
+}
+
+.ap-select {
+    width: 100%;
+    height: 3rem;
+    padding: 0 3rem 0 1.2rem;
+    font-size: 0.95rem;
+    font-family: "Open Sans", sans-serif;
+    color: #1A2D44;
+    background: #fff;
+    border: 1.5px solid rgba(26, 45, 68, 0.2);
+    border-radius: 3px;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ap-select:hover {
+    border-color: var(--ap-gold-lt);
+}
+
+.ap-select:focus {
+    border-color: var(--ap-gold-lt);
+    box-shadow: 0 0 0 3px rgba(197, 179, 88, 0.18);
+}
+
+.ap-select option {
+    background: #fff;
+    color: #1A2D44;
+}
+
+/* CSS chevron — hides the Unicode character and draws a proper arrow */
+.ap-select-arrow {
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #1A2D44;
+    border-bottom: 2px solid #1A2D44;
+    transform: translateY(-75%) rotate(45deg);
+    pointer-events: none;
+    font-size: 0;
+    opacity: 0.55;
+}
+
+/* ── Cards grid ─────────────────────────────────────────── */
+.ap-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* ── Card ───────────────────────────────────────────────── */
+.ap-card {
+    background: var(--ap-card-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ap-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+}
+
+.ap-card-img-wrap {
+    overflow: hidden;
+    height: 15rem;
+}
+
+.ap-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.55s ease;
+}
+
+.ap-card:hover .ap-card-img-wrap img {
+    transform: scale(1.05);
+}
+
+.ap-card-img-wrap--schema {
+    background: #e8eaf0;
+}
+
+.ap-card-img-wrap--schema img {
+    object-fit: contain;
+}
+
+.ap-card-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+    border-top: 1px solid rgba(26, 45, 68, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ap-card-title {
+    font-family: "Lora", serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1A2D44;
+    margin: 0 0 0.5rem 0;
+}
+
+.ap-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #6B6560;
+    margin-bottom: 1.1rem;
+}
+
+.ap-meta-sep {
+    color: var(--ap-gold-lt);
+}
+
+/* ── CTA button ─────────────────────────────────────────── */
+.ap-btn {
+    display: block;
+    width: 10rem;
+    padding: 0.72rem;
+    background: transparent;
+    color: #1A2D44;
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #1A2D44;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.ap-btn:hover {
+    background: #1A2D44;
+    color: #fff;
+}
+
+/* ── Modal ──────────────────────────────────────────────── */
+.ap-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.94);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 9999;
 }
 
-.detaljnije {
+.ap-modal {
     position: relative;
+    width: 92vw;
+    max-width: 820px;
+    background: #0D1B2A;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: auto;
-    width: 100%;
-    height: 70vh;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
 }
 
-.detalj-pozadina {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    margin: 0;
-}
-
-.full-image-stan {
-    margin: auto;
-    padding-top: 0;
-    height: 100%;
-    width: 100%;
+.ap-modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--ap-text);
+    font-size: 2rem;
+    line-height: 1;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: contain;
-    transition: opacity 0.5s ease;
+    opacity: 0.7;
+    z-index: 1;
+    transition: opacity 0.2s;
+}
+
+.ap-modal-close:hover {
     opacity: 1;
 }
 
-.close-button-stan {
-    position: absolute;
-    top: 0.3rem;
-    right: 1.6rem;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    z-index: 10000;
-  }
-
-  .zoom-out-apartmani {
-    animation: zoomOutApart 3500ms ease forwards;
+.ap-modal-img {
+    display: block;
+    width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
 }
 
-  .link {
-    text-decoration: none;
-  }
-
-
-  @media only screen and (min-width: 500px){ 
-
-    .apartmani-vrnjacka-banja, .prodaja-apartmana {
-        display: none;
+/* ── 500px ──────────────────────────────────────────────── */
+@media (min-width: 500px) {
+    .ap-hero-heading {
+        font-size: 2.2rem;
     }
 
-    .vrnjacka-banja-apartmani, .elegant-apartmani-u-izgradnji {
-        font-size: 1.5rem;
-    }
-
-    .kraljevski-apartman div { 
-        max-width: 35rem;
-    }
-    
-    .kraljevski-apartman img {
-        width: 90%;
-        max-height: 20rem;
-    }
-    
-}
-
-  @media only screen and (min-width: 620px){ 
-        
-    .apart {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-
-        }
-
-    .apart2 {
-        display: grid;
+    .ap-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .namesteni-apartmani h3, .opis div, .apartmani-u-izgradnji div p {
-        font-size: 1rem;
+    .ap-filters {
+        flex-direction: row;
+        justify-content: center;
     }
 
-
-      }
-    
-      @media only screen and (min-width: 1200px){ 
-
-        .elegant-apartmani-u-izgradnji {
-            margin-top: -4.5rem;
-        }
-
-        .apart {
-            padding-top: 0;
-            margin-top: 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-    
-            }
-    
-        .apart2 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-    }
-
-
-  @keyframes zoomOutApart {
-    0% {
-        transform: scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1); 
+    .ap-filter-wrap {
+        max-width: 16rem;
     }
 }
 
-  @keyframes introLoad {
+/* ── 820px ──────────────────────────────────────────────── */
+@media (min-width: 820px) {
+    .ap-hero {
+        height: 26rem;
+    }
 
-    from {
-        clip-path: polygon( 0 0, 100% 0, 100% 0, 0 0);
+    .ap-hero-heading {
+        font-size: 2.6rem;
+        line-height: 3.2rem;
     }
-    to {
-        clip-path: polygon( 0 0, 100% 0, 100% 100%, 0 100%);
-    }
-  }
 
-  @keyframes moveDown {
+    .ap-section {
+        padding: 4rem 3rem;
+    }
 
-    from {
-        transform: translateY(-30px);
-        opacity: 0;
+    .ap-heading {
+        font-size: 2.2rem;
     }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-  }
 
-  @keyframes moveArrow {
+    .ap-divider {
+        margin: 0 3rem 0.5rem;
+    }
+}
 
-    from {
-        transform: translateY(-1rem);
+/* ── 1200px ─────────────────────────────────────────────── */
+@media (min-width: 1200px) {
+    .ap-section {
+        padding: 5rem 6rem;
     }
-    to {
-        transform: translateY(0);
+
+    .ap-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
-  }
+
+    .ap-heading {
+        font-size: 2.5rem;
+    }
+
+    .ap-hero-heading {
+        font-size: 3rem;
+    }
+
+    .ap-divider {
+        margin: 0 6rem 0.5rem;
+    }
+}
+
+/* ── Keyframes ──────────────────────────────────────────── */
+@keyframes apZoom {
+    0%   { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes apFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,129 +1,157 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import stanovi from './NamesteniStanovi';
 import izgradnja from './Stanovi';
 import './Apartmani.css';
 
-function Apartmani () {
+function Apartmani() {
+  const [povrsina, setPovrsina] = useState('');
+  const [sprat, setSprat] = useState('');
+  const [detalj, setDetalj] = useState(null);
 
-const [povrsina, setPovrsina] = useState(null);
+  const filteredIzgradnja = izgradnja.filter(stan => {
+    const povrsinaOk = !povrsina || (
+      povrsina === '30' ? stan.povrsina <= 30 :
+      povrsina === '40' ? stan.povrsina >= 20 && stan.povrsina <= 40 :
+      povrsina === '60' ? stan.povrsina >= 40 && stan.povrsina <= 60 : true
+    );
+    const spratOk = !sprat || String(stan.sprat) === sprat;
+    return povrsinaOk && spratOk;
+  });
 
-const images= ["images2/apartman2.jpg", "images/stan9.jpg", "images/stan10.jpg","images/stan11.jpg", "images/bazen.jpg"];
-const [detalj, setDetalj] = useState(null);
-const [activeSlide, setActiveSlide] = useState(0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
- const filteredIzgradnja = izgradnja.filter(stan => {
-        if (povrsina === 30) {
-            return stan.povrsina <= 30;
-        } else if (povrsina === 40) {
-            return stan.povrsina >= 20 && stan.povrsina <= 40;
-        } else if (povrsina === 60) {
-            return stan.povrsina >= 40 && stan.povrsina <= 60;
-        } else {
-            return true; // Show all items if no filter is selected
-        }
-    });
+  return (
+    <div className='ap-page'>
 
-const handleSlideChange = (next) => {
-        setActiveSlide(next); 
-    };
-
-
-useEffect(() => {
-        window.scrollTo(0, 0);
-      }, []);
-
-return (
-    <div className='elegant-apartmani'>
-         <div className='apartmani-vrnjacka-banja'>
-                        <img
-                            src="images2/apartman2.jpg"
-                            alt={'draskovic'}
-                            className="image-slider-apartmani"
-                        />
-            </div>
-            <div className='prodaja-apartmana'>
-            <p>
-                Namešteni stanovi
-                <br/>
-                Stanovi u izgradnji
-            </p>         
+      {/* Hero */}
+      <div className='ap-hero'>
+        <div className='ap-hero-bg' style={{ backgroundImage: "url('images2/apartman2.jpg')" }} />
+        <div className='ap-hero-overlay' />
+        <div className='ap-hero-content'>
+          <span className='ap-hero-label'>Elegant Drašković</span>
+          <h1 className='ap-hero-heading'>
+            Namešteni stanovi
+            <br />
+            Stanovi u izgradnji
+          </h1>
         </div>
-         <h3 className='vrnjacka-banja-apartmani'>Namešteni apartmani</h3>
+      </div>
 
-        <div className='apart'>
-         {stanovi.map((stan, index) => (
-            <div className='namesteni-apartmani'>
-                <div className='kraljevski-apartman'>
-                    <div>
-                        <img src={stan.slike[0]}/>
-                    </div>
-                </div>
-                <div className='opis'>
-                        <h3>{stan.naslov}</h3>
-                        <p>Kvadratura: {stan.povrsina}m2</p>
-                        <p>Sprat: {stan.sprat}</p>
-                        <Link to={`/${index}`} className='link' ><p className='pregled'>Detaljnije</p></Link>
-                </div>
-            </div>
-         ))}
-         </div>
-         <div className="line-container">E</div>
-        <h3 className='elegant-apartmani-u-izgradnji'>Stanovi u izgradnji</h3>
-        <div>
-                <div className='selected-container'>                    
-                        <select name="type" type='text' id="selected-items"  >
-                                <option value="" >Svi spratovi</option>
-                                <option value="4">četvrti sprat</option>
-                                <option value="5">peti sprat</option>
-                                <option value="6">šesti sprat</option>                             
-                        </select>
-                        <div className='icon'>
-                            <i className='fa fa-caret-down' ></i>
-                        </div>
-                    </div>
-                    <div className='selected-container'>                    
-                        <select name="type" type='text' id="selected-items" value={povrsina} onChange={(e) => setPovrsina(parseInt(e.target.value))} >
-                                <option value="" >Sve kvadrature</option>
-                                <option value="30">do 30m2</option>
-                                <option value="40">20 - 40m2</option>
-                                <option value="60">40 - 60m2</option>                         
-                        </select>
-                        <div className='icon'>
-                            <i className='fa fa-caret-down' ></i>
-                        </div>
-                    </div>
+      {/* Section 1 – Furnished apartments */}
+      <section className='ap-section'>
+        <div className='ap-section-header'>
+          <span className='ap-label'>Na prodaju &amp; iznajmljivanje</span>
+          <h2 className='ap-heading'>Namešteni apartmani</h2>
+          <div className='ap-rule' />
         </div>
-            <div className='apart2'>
-            {filteredIzgradnja.map((stan, index) => (
-                <div className='apartmani-u-izgradnji'>
-                    <div className='sema'>                  
-                        <div>
-                            <img src={stan.slike} />
-                        </div>
-                    </div>
-                        <div>
-                            <p>Kvadratura: {stan.povrsina}m2</p>
-                            <p>Sprat: {stan.sprat}</p>
-                        </div>
-                        <p className='pregled-izgradnje' onClick={() => setDetalj(stan.slike)}>Detaljnije</p>
-                </div>
-                ))}
-            </div>
 
-            <div className={ detalj !== null ? 'full-img' : 'non-full'}  onClick={() => setDetalj(null)} >
-                <div className='detaljnije' onClick={(e) => e.stopPropagation()}>
-                    <div className='detalj-pozadina'>
-                        <span className="close-button-stan"  onClick={() => setDetalj(null)} >&times;</span>
-                        <img src={detalj} className="full-image-stan" alt='stanovi-vrnjacka-banja'/>
-                    </div>
+        <div className='ap-grid'>
+          {stanovi.map((stan, index) => (
+            <div className='ap-card' key={index}>
+              <div className='ap-card-img-wrap'>
+                <img src={stan.slike[0]} alt={stan.naslov} />
+              </div>
+              <div className='ap-card-body'>
+                <h3 className='ap-card-title'>{stan.naslov}</h3>
+                <div className='ap-card-meta'>
+                  <span>{stan.povrsina} m²</span>
+                  <span className='ap-meta-sep'>·</span>
+                  <span>Sprat {stan.sprat}</span>
                 </div>
+                <Link to={`/${index}`} className='ap-btn'>Detaljnije</Link>
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className='ap-divider'>
+        <span className='ap-divider-letter'>E</span>
+      </div>
+
+      {/* Section 2 – Under construction */}
+      <section className='ap-section'>
+        <div className='ap-section-header'>
+          <span className='ap-label'>Rezervišite unapred</span>
+          <h2 className='ap-heading'>Stanovi u izgradnji</h2>
+          <div className='ap-rule' />
+        </div>
+
+        {/* Filters */}
+        <div className='ap-filters'>
+          <div className='ap-filter-wrap'>
+            <select
+              className='ap-select'
+              value={sprat}
+              onChange={e => setSprat(e.target.value)}
+              aria-label='Filtriraj po spratu'
+            >
+              <option value=''>Svi spratovi</option>
+              <option value='4'>Četvrti sprat</option>
+              <option value='5'>Peti sprat</option>
+              <option value='6'>Šesti sprat</option>
+            </select>
+            <span className='ap-select-arrow' aria-hidden='true'>&#8964;</span>
+          </div>
+          <div className='ap-filter-wrap'>
+            <select
+              className='ap-select'
+              value={povrsina}
+              onChange={e => setPovrsina(e.target.value)}
+              aria-label='Filtriraj po kvadraturi'
+            >
+              <option value=''>Sve kvadrature</option>
+              <option value='30'>do 30 m²</option>
+              <option value='40'>20 – 40 m²</option>
+              <option value='60'>40 – 60 m²</option>
+            </select>
+            <span className='ap-select-arrow' aria-hidden='true'>&#8964;</span>
+          </div>
+        </div>
+
+        <div className='ap-grid'>
+          {filteredIzgradnja.map((stan, index) => (
+            <div className='ap-card' key={index}>
+              <div className='ap-card-img-wrap ap-card-img-wrap--schema'>
+                <img src={stan.slike} alt={`Plan stana ${index + 1}`} />
+              </div>
+              <div className='ap-card-body'>
+                <div className='ap-card-meta'>
+                  <span>{stan.povrsina} m²</span>
+                  <span className='ap-meta-sep'>·</span>
+                  <span>Sprat {stan.sprat}</span>
+                </div>
+                <button className='ap-btn' onClick={() => setDetalj(stan.slike)}>
+                  Detaljnije
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Floor plan modal */}
+      {detalj && (
+        <div className='ap-modal-overlay' onClick={() => setDetalj(null)}>
+          <div className='ap-modal' onClick={e => e.stopPropagation()}>
+            <button
+              className='ap-modal-close'
+              onClick={() => setDetalj(null)}
+              aria-label='Zatvori'
+            >
+              &times;
+            </button>
+            <img src={detalj} alt='Plan stana' className='ap-modal-img' />
+          </div>
+        </div>
+      )}
+
     </div>
-    )
+  );
 }
 
 export default Apartmani;

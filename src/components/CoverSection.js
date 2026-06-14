@@ -12,11 +12,10 @@ function CoverSection() {
       <div className='cover-gradient' />
 
       <div className='cover-content'>
-        <span className='cover-accent-line' />
         <h2 className='cover-heading'>
           Kupovina &amp; iznajmljivanje
         </h2>
-        <p className='cover-subheading'>— sve na jednom mestu</p>
+        <p className='cover-subheading'> sve na jednom mestu</p>
         <p className='cover-desc'>
           Direktna prodaja stanova
           <br />
@@ -34,19 +33,19 @@ function CoverSection() {
       </div>
 
       <div className='cover-infobar'>
-        <div className='cover-location'>
+        <a
+          href='https://maps.app.goo.gl/ws7kkaWwiMvzw5tg9'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='cover-infobar-link'
+        >
           <img src='images/lokacija.svg' alt='lokacija' />
           <span>Heroja Maričića 57a, Vrnjačka Banja</span>
-        </div>
-        <div className='cover-contact'>
-          <span className='cover-contact-name'>Miroslav Drašković</span>
-          <span className='cover-sep'>·</span>
-          <img src='images/mail-icon.svg' alt='mail' />
-          <span>elegant.mts@gmail.com</span>
-          <span className='cover-sep'>·</span>
+        </a>
+        <a href='tel:+38169663518' className='cover-infobar-link'>
           <img src='images/phone.svg' alt='telefon' />
           <span>+381 69 663 518</span>
-        </div>
+        </a>
       </div>
     </section>
   );

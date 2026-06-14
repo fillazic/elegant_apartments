@@ -47,7 +47,14 @@
 
 /* ── Content block ─────────────────────────────────────── */
 .ze-block {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 3rem;
+}
+
+/* On mobile, push the image below the text for the reverse block */
+.ze-block--reverse .ze-image-wrap {
+    order: 2;
 }
 
 /* ── Image ─────────────────────────────────────────────── */

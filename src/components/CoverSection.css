@@ -82,9 +82,10 @@
 
 /* ── CTA button ────────────────────────────────────────── */
 .cover-btn {
-    background-color: var(--gold);
-    color: #fff;
-    border: none;
+    background-color: #c5b358;
+    color: #002244;
+    border: 1.5px solid #c5b358;
+    border-radius: 4px;
     height: 3rem;
     width: 9rem;
     font-size: 1.05rem;
@@ -94,11 +95,13 @@
     letter-spacing: 2px;
     outline: none;
     animation: puls 2s linear infinite;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .cover-btn:hover {
-    background-color: #b09630;
+    background-color: #002244;
+    color: #c5b358;
+    border-color: #c5b358;
 }
 
 /* ── Amenities list ────────────────────────────────────── */
@@ -152,7 +155,7 @@
     /* Content anchored to right side */
     .cover-content {
         position: absolute;
-        top: 50%;
+        top: 46%;
         right: 0;
         left: auto;
         bottom: auto;
@@ -188,6 +191,10 @@
         color: rgba(255, 255, 255, 0.72);
         font-weight: 400;
         margin-bottom: 1.4rem;
+    }
+
+    .cover-btn {
+        display: none;
     }
 
     /* Amenities */
@@ -228,46 +235,42 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 60%;
+        width: 100%;
         background-color: rgba(0, 15, 45, 0.85);
         backdrop-filter: blur(6px);
         color: rgba(255, 255, 255, 0.85);
         padding: 0.7rem 1.5rem;
         z-index: 10;
-        flex-direction: column;
-        gap: 0.3rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
         font-size: 0.82rem;
         animation: introLoad 3s forwards;
     }
 
-    .cover-location,
-    .cover-contact {
+    .cover-infobar-link {
         display: flex;
         align-items: center;
         gap: 0.55rem;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        transition: color 0.2s;
     }
 
-    .cover-location img {
+    .cover-infobar-link:hover {
+        color: var(--gold);
+    }
+
+    .cover-infobar-link img {
         height: 1rem;
         width: auto;
-        opacity: 0.8;
+        opacity: 0.75;
+        transition: opacity 0.2s;
     }
 
-    .cover-contact img {
-        height: 0.85rem;
-        width: auto;
-        opacity: 0.8;
-    }
-
-    .cover-contact-name {
-        font-weight: 700;
-        color: var(--gold);
-    }
-
-    .cover-sep {
-        color: var(--gold);
-        opacity: 0.6;
-        padding: 0 0.2rem;
+    .cover-infobar-link:hover img {
+        opacity: 1;
     }
 }
 
@@ -304,12 +307,10 @@
     }
 
     .cover-infobar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         padding: 0.85rem 2rem;
         font-size: 0.88rem;
-        width: 64%;
+        width: 100%;
     }
 }
 
