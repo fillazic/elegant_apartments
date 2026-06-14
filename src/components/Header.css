@@ -69,16 +69,17 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  background-color: #c5b358;
+  background-color: #002244;
+  border: 1.5px solid #c5b358;
   border-radius: 50%;
   font-size: 0.85rem;
-  color: #fff;
+  color: #c5b358;
   transition: background-color 0.2s, transform 0.2s;
 }
 
 .header-icon--phone:hover {
-  background-color: #b8a245;
-  color: #fff;
+  background-color: #c5b358;
+  color: #002244;
   transform: scale(1.1);
 }
 
@@ -160,9 +161,9 @@
   padding-left: 0.5rem;
 }
 
-.mobile-nav__link--cta {
+.mobile-nav__link--active {
   color: #c5b358;
-  font-weight: 700;
+  padding-left: 0.5rem;
 }
 
 .mobile-nav__contact {
@@ -178,6 +179,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  width: fit-content;
   color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
   font-size: 0.82rem;
@@ -301,6 +303,19 @@
   }
 
   .nav-link--cta:hover {
+    background-color: #002244;
+    color: #c5b358;
+    border-color: #c5b358;
+  }
+
+  /* Active tab — gold rounded border */
+  .nav-link--active {
+    color: #c5b358;
+    border: 1.5px solid #c5b358;
+    border-radius: 4px;
+  }
+
+  .nav-link--cta-active {
     background-color: #002244;
     color: #c5b358;
     border-color: #c5b358;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
@@ -17,15 +17,13 @@ function Header() {
         </a>
 
         <nav className="desktop-nav" aria-label="Glavna navigacija">
+          <NavLink to="/" end className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}>Početna</NavLink>
           <Link to="#" className="nav-link">O nama</Link>
           <Link to="#" className="nav-link">Lokacija</Link>
-          <Link to="/stanovi" className="nav-link nav-link--cta">Stanovi</Link>
+          <NavLink to="/stanovi" className={({ isActive }) => `nav-link nav-link--cta${isActive ? ' nav-link--cta-active' : ''}`}>Stanovi</NavLink>
         </nav>
 
         <div className="header-actions">
-          <a href="mailto:elegant.mts@gmail.com" className="header-icon" aria-label="Pošalji email">
-            <i className="fa fa-envelope"></i>
-          </a>
           <a href="tel:+38169663518" className="header-icon header-icon--phone" aria-label="Pozovi">
             <i className="fa fa-phone"></i>
           </a>
@@ -44,24 +42,21 @@ function Header() {
 
       <div className={`mobile-nav${isMenuOpen ? ' mobile-nav--open' : ''}`} aria-hidden={!isMenuOpen}>
         <nav className="mobile-nav__links">
+          <NavLink to="/" end className={({ isActive }) => `mobile-nav__link${isActive ? ' mobile-nav__link--active' : ''}`} onClick={closeMenu}>Početna</NavLink>
           <Link to="#" className="mobile-nav__link" onClick={closeMenu}>O nama</Link>
           <Link to="#" className="mobile-nav__link" onClick={closeMenu}>Lokacija</Link>
-          <Link to="/stanovi" className="mobile-nav__link mobile-nav__link--cta" onClick={closeMenu}>Stanovi</Link>
+          <NavLink to="/stanovi" className={({ isActive }) => `mobile-nav__link mobile-nav__link--cta${isActive ? ' mobile-nav__link--active' : ''}`} onClick={closeMenu}>Stanovi</NavLink>
         </nav>
 
         <div className="mobile-nav__contact">
-          <a href="mailto:elegant.mts@gmail.com" className="mobile-nav__contact-item">
-            <i className="fa fa-envelope"></i>
-            <span>elegant.mts@gmail.com</span>
-          </a>
           <a href="tel:+38169663518" className="mobile-nav__contact-item">
             <i className="fa fa-phone"></i>
             <span>+381 69 663 518</span>
           </a>
-          <div className="mobile-nav__contact-item">
+          <a href="https://maps.app.goo.gl/ws7kkaWwiMvzw5tg9" target="_blank" rel="noopener noreferrer" className="mobile-nav__contact-item">
             <i className="fa fa-map-marker"></i>
             <span>Heroja Maričića 57a, Vrnjačka Banja</span>
-          </div>
+          </a>
         </div>
       </div>
 
