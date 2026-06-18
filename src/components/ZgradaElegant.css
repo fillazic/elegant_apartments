@@ -61,6 +61,8 @@
 .ze-image-wrap {
     overflow: hidden;
     margin-bottom: 1.8rem;
+    border: 5px solid #002244;
+    padding: 6px;
 }
 
 .ze-image-wrap img {
@@ -115,6 +117,7 @@
     padding-bottom: 56.25%;
     height: 0;
     margin: 0 auto 2rem;
+    border: 5px solid #002244;
 }
 
 .ze-map iframe {
@@ -171,10 +174,7 @@
 
     .ze-image-wrap {
         margin-bottom: 0;
-    }
-
-    .ze-image-wrap img {
-        box-shadow: 0 12px 40px rgba(26, 45, 68, 0.11);
+        box-shadow: 0 12px 40px rgba(26, 45, 68, 0.18);
     }
 
     .ze-heading {

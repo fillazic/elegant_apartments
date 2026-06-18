@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
@@ -18,8 +18,8 @@ function Header() {
 
         <nav className="desktop-nav" aria-label="Glavna navigacija">
           <NavLink to="/" end className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}>Početna</NavLink>
-          <Link to="#" className="nav-link">O nama</Link>
-          <Link to="#" className="nav-link">Lokacija</Link>
+          <NavLink to="/o-nama" className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}>O nama</NavLink>
+          <NavLink to="/o-objektu" className={({ isActive }) => `nav-link${isActive ? ' nav-link--active' : ''}`}>O Objektu</NavLink>
           <NavLink to="/stanovi" className={({ isActive }) => `nav-link nav-link--cta${isActive ? ' nav-link--cta-active' : ''}`}>Stanovi</NavLink>
         </nav>
 
@@ -43,8 +43,8 @@ function Header() {
       <div className={`mobile-nav${isMenuOpen ? ' mobile-nav--open' : ''}`} aria-hidden={!isMenuOpen}>
         <nav className="mobile-nav__links">
           <NavLink to="/" end className={({ isActive }) => `mobile-nav__link${isActive ? ' mobile-nav__link--active' : ''}`} onClick={closeMenu}>Početna</NavLink>
-          <Link to="#" className="mobile-nav__link" onClick={closeMenu}>O nama</Link>
-          <Link to="#" className="mobile-nav__link" onClick={closeMenu}>Lokacija</Link>
+          <NavLink to="/o-nama" className={({ isActive }) => `mobile-nav__link${isActive ? ' mobile-nav__link--active' : ''}`} onClick={closeMenu}>O nama</NavLink>
+          <NavLink to="/o-objektu" className={({ isActive }) => `mobile-nav__link${isActive ? ' mobile-nav__link--active' : ''}`} onClick={closeMenu}>O Objektu</NavLink>
           <NavLink to="/stanovi" className={({ isActive }) => `mobile-nav__link mobile-nav__link--cta${isActive ? ' mobile-nav__link--active' : ''}`} onClick={closeMenu}>Stanovi</NavLink>
         </nav>
 

@@ -72,6 +72,8 @@
 /* ── Section ────────────────────────────────────────────── */
 .ap-section {
     padding: 3rem 1.4rem;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .ap-section-header {

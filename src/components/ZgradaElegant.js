@@ -31,7 +31,6 @@ function ZgradaElegant() {
         <div className='ze-text'>
           <span className='ze-label'>Lokacija</span>
           <h3 className='ze-heading'>Gde se nalazimo?</h3>
-          <div className='ze-rule' />
           <p className='ze-body'>
             Objekat se nalazi na 200m od Banjskog šetališta, pa osim što je povoljno lociran
             u odnosu na sve lokacije koje je važno posetiti po dolasku u Vrnjačku Banju,
@@ -52,7 +51,6 @@ function ZgradaElegant() {
         <div className='ze-text'>
           <span className='ze-label'>O projektu</span>
           <h3 className='ze-heading'>Stambeno-poslovna zgrada Elegant</h3>
-          <div className='ze-rule' />
           <p className='ze-body'>
             Stambeno-poslovna zgrada Elegant-Drašković nastala je idejom tvorca ovog
             savremenog objekta da posetiocima i gostima ponudi veliki broj sadržaja,
@@ -60,6 +58,23 @@ function ZgradaElegant() {
             mogli da pronađu svoj kutak i da u potpunosti iskoriste pogodnosti koje ovaj
             objekat nudi.
           </p>
+        </div>
+      </div>
+
+      {/* Block 3: Amenities */}
+      <div className='ze-block ze-animate'>
+        <div className='ze-text'>
+          <span className='ze-label'>Sadržaji</span>
+          <h3 className='ze-heading'>Bogata ponuda sadržaja</h3>
+          <p className='ze-body'>
+            Na raspolaganju gostima i vlasnicima stoje bazen na 8. etaži sa panoramom
+            od 360° i vazdušnom banjom, panoramski lift, kafić-restoran na 7. etaži,
+            teretana, stoni tenis, perionica, centralna recepcija i lobi bar sa velikom
+            baštom i spoljnim šankom u prizemlju.
+          </p>
+        </div>
+        <div className='ze-image-wrap'>
+          <img src='images/bazen.jpg' alt='Bazen na krovu' />
         </div>
       </div>
 

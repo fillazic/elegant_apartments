@@ -2,7 +2,7 @@
 
 /* ── Section ────────────────────────────────────────────── */
 .gal-section {
-    padding: 3rem 1.4rem 4rem;
+    padding: 2rem 1.4rem 4rem;
     font-family: "Open Sans", sans-serif;
     background: #EDF1F8;
 }
@@ -224,7 +224,7 @@ dialog.gal-dialog::backdrop {
 /* ── 820px ──────────────────────────────────────────────── */
 @media (min-width: 820px) {
     .gal-section {
-        padding: 4rem 3rem 5rem;
+        padding: 2rem 3rem 5rem;
     }
 
     .gal-heading {
@@ -244,7 +244,7 @@ dialog.gal-dialog::backdrop {
 /* ── 1200px ─────────────────────────────────────────────── */
 @media (min-width: 1200px) {
     .gal-section {
-        padding: 5rem 6rem 6rem;
+        padding: 2rem 6rem 6rem;
     }
 
     .gal-grid {

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* ── Section ─────────────────────────────────────────────── */
+.onama-section {
+  background-color: #0b1a30;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+}
+
+.onama-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Header block ────────────────────────────────────────── */
+.onama-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.onama-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c5b358;
+  margin-bottom: 0.9rem;
+}
+
+.onama-title {
+  font-family: "Lora", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.3rem 0;
+  line-height: 1.2;
+}
+
+.onama-tagline {
+  font-family: "Lora", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 1.5rem 0;
+}
+
+.onama-accent-line {
+  width: 3rem;
+  height: 2px;
+  background-color: #c5b358;
+  margin: 0 auto;
+}
+
+/* ── Stats row ───────────────────────────────────────────── */
+.onama-stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border: 1px solid rgba(197, 179, 88, 0.2);
+  border-radius: 4px;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.onama-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 0.75rem;
+  border-right: 1px solid rgba(197, 179, 88, 0.2);
+}
+
+.onama-stat:last-child {
+  border-right: none;
+}
+
+.onama-stat__value {
+  font-family: "Lora", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #c5b358;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.onama-stat__label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+/* ── Body paragraphs ─────────────────────────────────────── */
+.onama-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.onama-paragraph {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(197, 179, 88, 0.3);
+}
+
+/* ── 600px ───────────────────────────────────────────────── */
+@media (min-width: 600px) {
+  .onama-section {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  .onama-title {
+    font-size: 2.6rem;
+  }
+
+  .onama-tagline {
+    font-size: 1.15rem;
+  }
+
+  .onama-stat__value {
+    font-size: 1.9rem;
+  }
+
+  .onama-stat__label {
+    font-size: 0.72rem;
+  }
+}
+
+/* ── 820px ───────────────────────────────────────────────── */
+@media (min-width: 820px) {
+  .onama-section {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
+
+  .onama-inner {
+    padding: 0 2.5rem;
+  }
+
+  .onama-title {
+    font-size: 3rem;
+  }
+
+  .onama-tagline {
+    font-size: 1.25rem;
+  }
+
+  .onama-stat {
+    padding: 1.5rem 1rem;
+  }
+
+  .onama-stat__value {
+    font-size: 2.2rem;
+  }
+
+  .onama-stat__label {
+    font-size: 0.78rem;
+  }
+
+  .onama-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    padding-left: 1.25rem;
+  }
+}
+
+/* ── 1200px ──────────────────────────────────────────────── */
+@media (min-width: 1200px) {
+  .onama-inner {
+    padding: 0 3rem;
+  }
+
+  .onama-title {
+    font-size: 3.4rem;
+  }
+
+  .onama-paragraph {
+    font-size: 1.1rem;
+  }
+}

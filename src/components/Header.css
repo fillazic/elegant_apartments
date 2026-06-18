@@ -282,13 +282,13 @@
     font-weight: 600;
     color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    border-radius: 0.375rem;
-    transition: color 0.2s, background-color 0.2s;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
   }
 
   .nav-link:hover {
     color: #c5b358;
-    background-color: rgba(197, 179, 88, 0.08);
+    border-bottom-color: #c5b358;
   }
 
   .nav-link--cta {
@@ -308,11 +308,10 @@
     border-color: #c5b358;
   }
 
-  /* Active tab — gold rounded border */
+  /* Active tab — gold bottom border */
   .nav-link--active {
     color: #c5b358;
-    border: 1.5px solid #c5b358;
-    border-radius: 4px;
+    border-bottom: 2px solid #c5b358;
   }
 
   .nav-link--cta-active {
@@ -355,9 +354,7 @@
     font-size: 1.1rem;
   }
 
-  .nav-link:hover {
-    color: #c5b358;
-  }
+
 }
 
 /* ── 1440px — wide monitors, cap content width ───────── */
