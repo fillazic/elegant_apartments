@@ -19,25 +19,13 @@
 /* ── Logo ────────────────────────────────────────────── */
 .logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1.2;
+  align-items: center;
   text-decoration: none;
 }
 
-.logo-main {
-  font-family: "Lora", serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #c5b358;
-  letter-spacing: 0.18em;
-}
-
-.logo-sub {
-  font-family: "Lora", serif;
-  font-size: 0.7rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.1em;
+.logo-svg {
+  height: 3.2rem;
+  width: auto;
 }
 
 /* ── Desktop nav (hidden on mobile) ─────────────────── */
@@ -234,12 +222,8 @@
     padding: 0 1.75rem;
   }
 
-  .logo-main {
-    font-size: 1.7rem;
-  }
-
-  .logo-sub {
-    font-size: 0.8rem;
+  .logo-svg {
+    height: 3.2rem;
   }
 
   .header-actions {
@@ -254,12 +238,8 @@
     padding: 0 2.5rem;
   }
 
-  .logo-main {
-    font-size: 2rem;
-  }
-
-  .logo-sub {
-    font-size: 0.9rem;
+  .logo-svg {
+    height: 3.6rem;
   }
 
   /* Hide mobile-only elements */
@@ -273,6 +253,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-left: auto;
   }
 
   .nav-link {
@@ -298,7 +279,6 @@
     padding: 0.45rem 1.25rem;
     border: 1.5px solid #c5b358;
     border-radius: 4px;
-    animation: pulse 2.5s ease-in-out infinite;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s;
   }
 
@@ -338,12 +318,8 @@
     padding: 0 3.5rem;
   }
 
-  .logo-main {
-    font-size: 2.4rem;
-  }
-
-  .logo-sub {
-    font-size: 1rem;
+  .logo-svg {
+    height: 5rem;
   }
 
   .desktop-nav {

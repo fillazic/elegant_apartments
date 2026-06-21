@@ -94,7 +94,6 @@
     cursor: pointer;
     letter-spacing: 2px;
     outline: none;
-    animation: puls 2s linear infinite;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 

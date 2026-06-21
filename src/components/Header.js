@@ -11,9 +11,15 @@ function Header() {
   return (
     <>
       <header className="header">
-        <a href="/" className="logo">
-          <span className="logo-main">ELEGANT</span>
-          <span className="logo-sub">Drašković</span>
+        <a href="/" className="logo" aria-label="Elegant Drašković - Početna">
+          <svg className="logo-svg" viewBox="24 0 162 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="90" y="34" textAnchor="middle" fontFamily="'University Roman Std', serif" fontSize="34" fill="#c5b358">
+              Elegant
+            </text>
+            <text x="100" y="50" fontFamily="'Open Sans', sans-serif" fontSize="10" fontWeight="600" fill="#6B8EB5" letterSpacing="2">
+              DRAŠKOVIĆ
+            </text>
+          </svg>
         </a>
 
         <nav className="desktop-nav" aria-label="Glavna navigacija">
